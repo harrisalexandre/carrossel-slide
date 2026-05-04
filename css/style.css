@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  text-align: center;
+}
+
+/* CONTAINER */
+main {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+header {
+  padding: 120px 20px 25px;
+}
+
+.logo-principal {
+  width: 800px; /* +50% */
+  padding: 60px;
+  height: auto;
+}
+
+/* TEXTO */
+.titulo {
+  margin: 30px 0 50px;
+  font-size: 22px;
+  color: #555;
+}
+
+/* CARROSSEL */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  background: #ffffff;
+  padding: 50px 0;
+  position: relative;
+}
+
+/* fade lateral */
+.carousel::before,
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+/* trilho */
+.track {
+  display: flex;
+  align-items: center;
+  gap: 80px; /* mais espaço */
+  width: max-content;
+  will-change: transform;
+}
+
+/* LOGOS */
+.track img {
+  height: 135px; /* 🔥 era 90 → agora +50% */
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+
+  opacity: 0.9;
+  filter: grayscale(10%);
+  transition: all 0.3s ease;
+}
+
+/* hover */
+.track img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.15);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .track img {
+    height: 90px;
+  }
+
+  .track {
+    gap: 45px;
+  }
+
+  .titulo {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .track img {
+    height: 65px;
+  }
+
+  .track {
+    gap: 30px;
+  }
+
+  .carousel::before,
+  .carousel::after {
+    width: 80px;
+  }
+}
